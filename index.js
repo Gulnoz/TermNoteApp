@@ -23,7 +23,9 @@ const loginUserButton = document.querySelector("#loginUserButton")
 const createUserButton = document.querySelector("#createUserButton")
 const loginUserSection = document.querySelector("#loginUserSection")
 const createUserSection = document.querySelector("#createUserSection")
+
 loginUserButton.addEventListener("click", renderLoginForm)
+
 function renderLoginForm(event) {
     loginUserSection.innerHTML = `
   <form id="loginUserForm" class="homeForm">
@@ -32,16 +34,25 @@ function renderLoginForm(event) {
   </form>
   `
     let loginUserSubmitButton = document.querySelector("#loginUserSubmitButton")
+
     loginUserSubmitButton.addEventListener("submit", event => {
         event.preventDefault()
+
         let name = document.querySelector("#loginUserFormInput").value
-        fetch()
+
+        fetch(`http://localhost:3000/users`)
             .then(resp => resp.json())
             .then(renderUser)
     })
 }
 createUserButton.addEventListener("click", renderCreateForm)
+
 function renderCreateForm(event) {
+
+    event.preventDefault()
+    
+    //ol.innerHTML=''
+    
     createUserSection.innerHTML = `
   <form id="createUserForm" class="homeForm">
   <input id="createUserFormInputName" type="text" name="name" placeholder="Name" autocomplete="off" />
@@ -51,14 +62,30 @@ function renderCreateForm(event) {
   </form> 
   `
     let createUserSubmitButton = document.querySelector("#createUserSubmitButton")
+
     createUserSubmitButton.addEventListener("submit", event => {
         event.preventDefault()
+        console.log("CreateUserSubmit")
         let name = document.querySelector("#createUserFormInputName").value
         let email = document.querySelector("#createUserFormInputEmail").value
         let password = document.querySelector("#createUserFromInputPassword").value
-        fetch()
+        
+        fetch(`http://localhost:3000/users`,{
+            method: 'POST',
+
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                password: password
+            })
+        })
             .then(resp => resp.json())
-            .then(renderUser)
+            .then(console.log)
     })
 }
 function renderUser() {
@@ -129,7 +156,7 @@ function slapOneOnTheDom(wordObj) {
                 wordImg = imgArr[[Math.floor(Math.random() * imgArr.length)]].largeImageURL
                 console.log(imgArr.length)
                 body.background = wordImg;
-            }, 4e000);
+            }, 4000);
         });
     }
 
