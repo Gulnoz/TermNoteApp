@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::API
+
     before_action :set_up_auth_variables
 
     def set_up_auth_variables
@@ -22,4 +23,5 @@ class ApplicationController < ActionController::API
     def signout
         session["user_id"]=nil
     end
+
 end
