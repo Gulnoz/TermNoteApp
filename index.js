@@ -129,7 +129,7 @@ function slapOneOnTheDom(wordObj) {
                 wordImg = imgArr[[Math.floor(Math.random() * imgArr.length)]].largeImageURL
                 console.log(imgArr.length)
                 body.background = wordImg;
-            }, 4000);
+            }, 4e000);
         });
     }
 
