@@ -45,51 +45,49 @@ function renderLoginForm(event) {
             .then(renderUser)
     })
 }
+
 createUserButton.addEventListener("click", renderCreateForm)
 
 function renderCreateForm(event) {
-
-    event.preventDefault()
-    
-    //ol.innerHTML=''
     
     createUserSection.innerHTML = `
   <form id="createUserForm" class="homeForm">
   <input id="createUserFormInputName" type="text" name="name" placeholder="Name" autocomplete="off" />
   <input id="createUserFormInputEmail" type="text" name="email" placeholder="E-mail" autocomplete="off" />
   <input id="createUserFormInputPassword" type="text" name="password" placeholder="Password" autocomplete="off" />
-  <button id="createUserSubmitButton" type="submit"> Create User </button>
+  <button id="createUserSubmitButton" type="click"> Create User </button>
   </form> 
   `
-    let createUserSubmitButton = document.querySelector("#createUserSubmitButton")
-
-    createUserSubmitButton.addEventListener("submit", event => {
-        event.preventDefault()
-        console.log("CreateUserSubmit")
-        let name = document.querySelector("#createUserFormInputName").value
-        let email = document.querySelector("#createUserFormInputEmail").value
-        let password = document.querySelector("#createUserFromInputPassword").value
-        
-        fetch(`http://localhost:3000/users`,{
-            method: 'POST',
-
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-
-            body: JSON.stringify({
-                name: name,
-                email: email,
-                password: password
-            })
-        })
-            .then(resp => resp.json())
-            .then(console.log)
-    })
+    const createUserSubmitButton = document.querySelector("#createUserSubmitButton")
+    createUserSubmitButton.addEventListener("click", createUserFetch)
 }
-function renderUser() {
+
+function createUserFetch(event) {
+
+    const name = document.querySelector("#createUserFormInputName").value
+    const email = document.querySelector("#createUserFormInputEmail").value
+    const password = document.querySelector("#createUserFormInputPassword").value
+
+    fetch("http://localhost:3000/users", {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name: name,
+            email: email,
+            password: password
+        })
+    })
+    .then(response => response.json())
+    .then(renderUser)
+}
+
+function renderUser(data) {
     console.log("Slap the current user on dom! See comment below.")
+    console.log(data)
+    debugger
     // document.querySelector("#renderCurrentUser")
 }
 
