@@ -103,6 +103,14 @@ function fetchImg() {
             wordImg = imgArr[[Math.floor(Math.random() * imgArr.length)]].largeImageURL})
 }
 
+function fetchMyWords() {
+
+    fetch(`http://localhost:3000/my_words`)
+        .then(res => res.json())
+        .then(res => {console.log(res)})
+}
+
+
 function bodyImg(image) {
    
         wordImg = image
