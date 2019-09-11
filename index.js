@@ -23,7 +23,9 @@ const loginUserButton = document.querySelector("#loginUserButton")
 const createUserButton = document.querySelector("#createUserButton")
 const loginUserSection = document.querySelector("#loginUserSection")
 const createUserSection = document.querySelector("#createUserSection")
+
 loginUserButton.addEventListener("click", renderLoginForm)
+
 function renderLoginForm(event) {
     loginUserSection.innerHTML = `
   <form id="loginUserForm" class="homeForm">
