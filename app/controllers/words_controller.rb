@@ -8,7 +8,7 @@ class WordsController < ApplicationController
      def create
         word=Word.create(word_params)
      
-        render json: { hello: 'world' }
+        render json: word
     end
 
     def update
@@ -30,7 +30,7 @@ class WordsController < ApplicationController
     private
     def word_params
         
-       params.permit(:name, :imgurl, :definition, :user_id)
+       params.permit(:name, :imgurl, :definition, :example, :user_id)
     end
        
 end
