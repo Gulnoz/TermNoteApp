@@ -1,5 +1,7 @@
 class WordsController < ApplicationController
-
+ 
+   before_action :autorized, only: [:index, :show, :update, :create, :destroy, :my_items]
+   
     def requestword
         response = Word.request_word("dog")
         render json: response
@@ -16,8 +18,13 @@ class WordsController < ApplicationController
    render json: word
     end
 
+    def my_words
+        words=@current_user.words
+        render json: words
+    end
+
     def show
-    word=Word.find_by(param[:id])
+    word=Word.find_by(name: param[:name])
     render json: word
     end
 
