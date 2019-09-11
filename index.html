@@ -12,15 +12,22 @@
 <body>
 
     <main class="container">
+    
+        <button id="loginUserButton" class="homeButton"> Login </button>
+        <div id="loginUserSection"></div>
+        <button id="createUserButton" class="homeButton"> Create Account </button>
+        <div id="createUserSection"></div>
+        <div id="renderCurrentUser"> </div>
+    
         <form id="form_to_search" class="ui fluid action input">
             <input type="text" name="title" placeholder="word" autocomplete="off" />
-            <button id="find_word" type="submit" >Find word</button>
+            <button id="find_word" type="submit">Find word</button>
         </form>
     
         <ol id="requested_word_list">
-
         </ol>
     </main>
 </body>
 <script defer type="text/javascript" src="index.js"></script>
 </html>
+
