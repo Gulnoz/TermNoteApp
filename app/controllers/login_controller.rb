@@ -7,7 +7,7 @@ class LoginController < ApplicationController
         if user && user.authenticate(params[:password])
             #set session["user_id"]
             session["user_id"] = user.id
-            flash[:message] = "Welcome back, #{user.name}!"
+            # flash[:message] = "Welcome back, #{user.name}!"
             render json: user.id
 
         else
