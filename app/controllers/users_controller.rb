@@ -1,19 +1,18 @@
 class UsersController < ApplicationController
 
     def create
-        byebug
-    user=User.create(user_params)
-    render json: user
+        @user = User.create(user_params)
+        render json: @user
     end
 
     def update
-         user=User.update(user_params)
-         render json: user
+        @user = User.update(user_params)
+        render json: @user
     end
 
     private
+
     def user_params
-        
         params.permit(:name, :email, :password)
     end
 
