@@ -1,0 +1,1364 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20190909194149)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190909194149_create_users.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190909194149_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190909194149"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateWords (20190909194311)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "words" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "imgurl" varchar, "definition" varchar, "example" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_44b4fd34b7"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20190909194311_create_words.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_words_on_user_id" ON "words" ("user_id")[0m
+  ↳ db/migrate/20190909194311_create_words.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190909194311"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateNotes (20190909194342)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "notes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar, "word_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_5ae2f484a8"
+FOREIGN KEY ("word_id")
+  REFERENCES "words" ("id")
+)[0m
+  ↳ db/migrate/20190909194342_create_notes.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_notes_on_word_id" ON "notes" ("word_id")[0m
+  ↳ db/migrate/20190909194342_create_notes.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190909194342"]]
+  ↳ bin/rails:9
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-09-09 20:56:58.967940"], ["updated_at", "2019-09-09 20:56:58.967940"]]
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Andy"], ["email", "andy@email.com"], ["password_digest", "$2a$12$ZY5YmoqeMbabhc97I04CB.76j.mfHCbarKin1rW2YPoGeBVd6q/mm"], ["created_at", "2019-09-09 21:48:32.321606"], ["updated_at", "2019-09-09 21:48:32.321606"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dora"], ["email", "dora@email.com"], ["password_digest", "$2a$12$1CrqBHsjA/i2MgPpAmTCKelH.yfuNryt3Khj8xaBYjC2P8H3zvqvy"], ["created_at", "2019-09-09 21:48:32.516260"], ["updated_at", "2019-09-09 21:48:32.516260"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mart"], ["email", "mart@email.com"], ["password_digest", "$2a$12$0jpdWXv5LkYFQr9Swj33Vu11MGgl/c7Zc.RzDbDxe2B2427LD6XWS"], ["created_at", "2019-09-09 21:48:32.710717"], ["updated_at", "2019-09-09 21:48:32.710717"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Andy"], ["email", "andy@email.com"], ["password_digest", "$2a$12$LUbWjty.BH9cALdokPDmYek7GVE/nzRsZMOtziTQBxkv39SrR2RtK"], ["created_at", "2019-09-09 21:53:06.732332"], ["updated_at", "2019-09-09 21:53:06.732332"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dora"], ["email", "dora@email.com"], ["password_digest", "$2a$12$Gh/.WWgb2LPVyUHLe5JX4.uzLnKf8sunTynjXxwiShl6yECtlDrsm"], ["created_at", "2019-09-09 21:53:06.926609"], ["updated_at", "2019-09-09 21:53:06.926609"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mart"], ["email", "mart@email.com"], ["password_digest", "$2a$12$THP1s88wf3olnM3JMCOu.eGLe9BtBk8m1u5BZHRZt0EQlQLb1Xl9m"], ["created_at", "2019-09-09 21:53:07.125202"], ["updated_at", "2019-09-09 21:53:07.125202"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Andy"], ["email", "andy@email.com"], ["password_digest", "$2a$12$ujPrCrEUVQu3isAttm/fFuQkTswrJx4AwSrTjjEEKjF0ipWKzQjry"], ["created_at", "2019-09-09 21:53:32.941284"], ["updated_at", "2019-09-09 21:53:32.941284"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dora"], ["email", "dora@email.com"], ["password_digest", "$2a$12$HKAFPD1wM2dIcZKM/JJ0JuVREXamz1E6uqIyLCIUu/PnJs2ug8zbO"], ["created_at", "2019-09-09 21:53:33.135931"], ["updated_at", "2019-09-09 21:53:33.135931"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mart"], ["email", "mart@email.com"], ["password_digest", "$2a$12$FwUXO0eAVEfLjgW4508Ev.NEn2sRVeJtRfL9/Y.2iQ/J4m8WrpthK"], ["created_at", "2019-09-09 21:53:33.329715"], ["updated_at", "2019-09-09 21:53:33.329715"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Andy"], ["email", "andy@email.com"], ["password_digest", "$2a$12$C5WC5lfY0tRMCG.2I5dAPeFWREmv3gLSqJuAnMW8Kr/Ji/DBT0WbS"], ["created_at", "2019-09-09 21:55:38.793836"], ["updated_at", "2019-09-09 21:55:38.793836"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dora"], ["email", "dora@email.com"], ["password_digest", "$2a$12$2po2gYWHOK.tx8Rou7irSuy5o2JtGCv0./rc3DILaLklXFF0ZlxGK"], ["created_at", "2019-09-09 21:55:38.990208"], ["updated_at", "2019-09-09 21:55:38.990208"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mart"], ["email", "mart@email.com"], ["password_digest", "$2a$12$sF04.SnIo2bPC14liwD/Gu7.iX09i8aemovzbm1ho3L/amfjjX10K"], ["created_at", "2019-09-09 21:55:39.194542"], ["updated_at", "2019-09-09 21:55:39.194542"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Andy"], ["email", "andy@email.com"], ["password_digest", "$2a$12$nil7jVRlA9Gd0iqwZHL8tO5AzL0KgPxBbwP3d.IeLPUonMf3/vaW6"], ["created_at", "2019-09-09 21:59:45.757036"], ["updated_at", "2019-09-09 21:59:45.757036"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dora"], ["email", "dora@email.com"], ["password_digest", "$2a$12$E.SeMYsTAJQ5XrssZ9.PF.bknXjdQEEotwXBgD8C1nwW6hxD9t.Qq"], ["created_at", "2019-09-09 21:59:45.950956"], ["updated_at", "2019-09-09 21:59:45.950956"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mart"], ["email", "mart@email.com"], ["password_digest", "$2a$12$KOhH2ly5SiAJ2FE6ZtdRKu.z.TEbcgxALyXhlHJ22Jw7yOE0gkLXS"], ["created_at", "2019-09-09 21:59:46.147424"], ["updated_at", "2019-09-09 21:59:46.147424"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mWord Create (0.9ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "example", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "apple"], ["imgurl", "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQ9t5bXv_sj6SLjIP1hQ8xy5q_BcJWSmlCeE2rs8JZu0bAtv1B9f-dRwwQ9omhrBlvgbOkfFLdBL3tVPFKQpkKY9JM-uxJ7TwUEbbsSR7z_pnblRSRsXEYdlg&usqp=CAc"], ["definition", "apple"], ["example", "This is red apple."], ["user_id", 13], ["created_at", "2019-09-09 21:59:46.199641"], ["updated_at", "2019-09-09 21:59:46.199641"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mWord Load (0.4ms)[0m  [1m[34mSELECT  "words".* FROM "words" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mWord Load (0.3ms)[0m  [1m[34mSELECT  "words".* FROM "words" ORDER BY "words"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mWord Load (0.3ms)[0m  [1m[34mSELECT  "words".* FROM "words" ORDER BY "words"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Andy"], ["email", "andy@email.com"], ["password_digest", "$2a$12$Rv1cU7LNsbGj0nTwLqGQPOzO5h2s/5FbzSnzysSqONL65MGroSfkG"], ["created_at", "2019-09-09 22:03:50.468201"], ["updated_at", "2019-09-09 22:03:50.468201"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dora"], ["email", "dora@email.com"], ["password_digest", "$2a$12$tHoLZPqYgOB13WXMnv27R.z5XGaUREt1rAjrr4sKhs6i3U/6btReO"], ["created_at", "2019-09-09 22:03:50.662455"], ["updated_at", "2019-09-09 22:03:50.662455"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mart"], ["email", "mart@email.com"], ["password_digest", "$2a$12$w2u3FKXt.X3C7Zv2SpVHH.RIWUsiRMXK/PJnl.RmC0u3c0iGluD8S"], ["created_at", "2019-09-09 22:03:50.855204"], ["updated_at", "2019-09-09 22:03:50.855204"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "example", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "apple"], ["imgurl", "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQ9t5bXv_sj6SLjIP1hQ8xy5q_BcJWSmlCeE2rs8JZu0bAtv1B9f-dRwwQ9omhrBlvgbOkfFLdBL3tVPFKQpkKY9JM-uxJ7TwUEbbsSR7z_pnblRSRsXEYdlg&usqp=CAc"], ["definition", "apple"], ["example", "This is red apple."], ["user_id", 16], ["created_at", "2019-09-09 22:03:50.868686"], ["updated_at", "2019-09-09 22:03:50.868686"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" ORDER BY "notes"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Andy"], ["email", "andy@email.com"], ["password_digest", "$2a$12$kiMLNAuaO5U8XTpr/8KyIuliLQpyHGlxQKSOZ02hKXsQHwrD2oVT6"], ["created_at", "2019-09-09 22:05:11.527008"], ["updated_at", "2019-09-09 22:05:11.527008"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dora"], ["email", "dora@email.com"], ["password_digest", "$2a$12$qNDipR25gVe.xNGgOUQcT.sFStSYwMdd0MGJH8jWjS56CqM2AlK6G"], ["created_at", "2019-09-09 22:05:11.724241"], ["updated_at", "2019-09-09 22:05:11.724241"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mart"], ["email", "mart@email.com"], ["password_digest", "$2a$12$frgx7HLtl7BG5RXbIDEqDOHohvlrbSWTXXZKaXgoV2bYqVAGwK1Su"], ["created_at", "2019-09-09 22:05:11.923115"], ["updated_at", "2019-09-09 22:05:11.923115"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "example", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "apple"], ["imgurl", "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQ9t5bXv_sj6SLjIP1hQ8xy5q_BcJWSmlCeE2rs8JZu0bAtv1B9f-dRwwQ9omhrBlvgbOkfFLdBL3tVPFKQpkKY9JM-uxJ7TwUEbbsSR7z_pnblRSRsXEYdlg&usqp=CAc"], ["definition", "apple"], ["example", "This is red apple."], ["user_id", 19], ["created_at", "2019-09-09 22:05:11.937434"], ["updated_at", "2019-09-09 22:05:11.937434"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mNote Load (0.6ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Andy"], ["email", "andy@email.com"], ["password_digest", "$2a$12$w4RmJhVlhJmKJdX.2C1GQu3na3EmoqM3rz5/r/9yznq8seLRVaUzq"], ["created_at", "2019-09-09 22:06:06.082755"], ["updated_at", "2019-09-09 22:06:06.082755"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dora"], ["email", "dora@email.com"], ["password_digest", "$2a$12$4m6gnLElv9gnqkYh8XnkKOkqWloFX9ve33RIb2n8CwExbCh8yMLoi"], ["created_at", "2019-09-09 22:06:06.277311"], ["updated_at", "2019-09-09 22:06:06.277311"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mart"], ["email", "mart@email.com"], ["password_digest", "$2a$12$UxSP.mVkPPHFd1ntf86u5ejYvUnEyZWZG.VnVKLIQVcnpo8GxEo4i"], ["created_at", "2019-09-09 22:06:06.472197"], ["updated_at", "2019-09-09 22:06:06.472197"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "example", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "apple"], ["imgurl", "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQ9t5bXv_sj6SLjIP1hQ8xy5q_BcJWSmlCeE2rs8JZu0bAtv1B9f-dRwwQ9omhrBlvgbOkfFLdBL3tVPFKQpkKY9JM-uxJ7TwUEbbsSR7z_pnblRSRsXEYdlg&usqp=CAc"], ["definition", "apple"], ["example", "This is red apple."], ["user_id", 22], ["created_at", "2019-09-09 22:06:06.486998"], ["updated_at", "2019-09-09 22:06:06.486998"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mWord Load (0.1ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mNote Create (0.2ms)[0m  [1m[32mINSERT INTO "notes" ("description", "word_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "This is my first note about apple."], ["word_id", 4], ["created_at", "2019-09-09 22:06:06.495739"], ["updated_at", "2019-09-09 22:06:06.495739"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mNote Load (0.7ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" ORDER BY "notes"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" ORDER BY "notes"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mWord Load (0.1ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" ORDER BY "notes"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mWord Load (0.2ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+Started GET "/requestword/" for ::1 at 2019-09-09 18:56:36 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/gulnoza/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WordsController#requestword as */*
+Completed 200 OK in 159ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requestword" for ::1 at 2019-09-09 19:03:54 -0400
+Processing by WordsController#requestword as */*
+Completed 200 OK in 111ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requestword/dog" for ::1 at 2019-09-09 19:09:19 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/requestword/dog"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/requestword/cat" for ::1 at 2019-09-09 19:09:31 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/requestword/cat"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2019-09-10 21:38:47 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/gulnoza/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/gulnoza/.rvm/gems/ruby-2.6.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/gulnoza/.rvm/gems/ruby-2.6.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (3.4ms)
+Completed 200 OK in 13ms (Views: 10.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2019-09-10 21:38:47 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/words" for ::1 at 2019-09-10 21:39:19 -0400
+Processing by WordsController#index as HTML
+Completed 500 Internal Server Error in 156ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `words' for #<WordsController:0x00007feb0bb2eed8>
+Did you mean?  word):
+  
+app/controllers/words_controller.rb:25:in `index'
+Started GET "/words" for ::1 at 2019-09-10 21:40:12 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.4ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:25
+Completed 200 OK in 13ms (Views: 8.5ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/words" for ::1 at 2019-09-10 21:46:09 -0400
+Processing by WordsController#create as */*
+  [1m[36mWord Load (0.3ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+Completed 200 OK in 64ms (Views: 0.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2019-09-10 21:46:48 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/gulnoza/.rvm/gems/ruby-2.6.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/gulnoza/.rvm/gems/ruby-2.6.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (1.7ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/welcome" for ::1 at 2019-09-10 21:46:53 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/welcome"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/words" for ::1 at 2019-09-10 21:46:55 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.4ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:25
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/words" for ::1 at 2019-09-10 21:47:59 -0400
+Processing by WordsController#create as */*
+  [1m[36mWord Load (0.4ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+Completed 200 OK in 12ms (Views: 0.5ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/words" for ::1 at 2019-09-10 21:50:26 -0400
+Processing by WordsController#create as */*
+  [1m[36mWord Load (0.2ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+Completed 200 OK in 13ms (Views: 0.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/words" for ::1 at 2019-09-10 21:50:40 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.1ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:25
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/words" for ::1 at 2019-09-10 21:53:12 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.1ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:25
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/words" for ::1 at 2019-09-10 21:53:14 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.1ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:25
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/words" for ::1 at 2019-09-10 21:53:36 -0400
+Processing by WordsController#create as */*
+  [1m[36mWord Load (0.2ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+Completed 200 OK in 11ms (Views: 0.9ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/words" for ::1 at 2019-09-10 21:55:18 -0400
+Processing by WordsController#create as */*
+  [1m[36mWord Load (0.2ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+Completed 200 OK in 14ms (Views: 0.8ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/words" for ::1 at 2019-09-10 21:57:53 -0400
+Processing by WordsController#create as */*
+  [1m[36mWord Load (0.1ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+Completed 200 OK in 11ms (Views: 0.7ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/words" for ::1 at 2019-09-10 21:59:44 -0400
+Processing by WordsController#create as */*
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 0.7ms)
+
+
+  [1m[36mWord Load (0.5ms)[0m  [1m[34mSELECT  "words".* FROM "words" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/words" for ::1 at 2019-09-10 22:04:30 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.2ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:25
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWord Create (3.0ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "example", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "apple"], ["imgurl", "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQ9t5bXv_sj6SLjIP1hQ8xy5q_BcJWSmlCeE2rs8JZu0bAtv1B9f-dRwwQ9omhrBlvgbOkfFLdBL3tVPFKQpkKY9JM-uxJ7TwUEbbsSR7z_pnblRSRsXEYdlg&usqp=CAc"], ["definition", "apple"], ["example", "This is red apple."], ["user_id", 1], ["created_at", "2019-09-11 02:04:52.554289"], ["updated_at", "2019-09-11 02:04:52.554289"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/words" for ::1 at 2019-09-10 22:05:58 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.1ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:25
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/words" for ::1 at 2019-09-10 22:06:16 -0400
+Processing by WordsController#create as */*
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/words" for ::1 at 2019-09-10 22:06:57 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.3ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:25
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/words" for ::1 at 2019-09-10 22:08:49 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.2ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:25
+Completed 200 OK in 10ms (Views: 6.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/words" for ::1 at 2019-09-10 22:08:59 -0400
+Processing by WordsController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:31:in `word_params'
+app/controllers/words_controller.rb:9:in `create'
+Started POST "/words" for ::1 at 2019-09-10 22:15:57 -0400
+Processing by WordsController#create as */*
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:31:in `word_params'
+app/controllers/words_controller.rb:9:in `create'
+Started GET "/words" for ::1 at 2019-09-10 22:17:28 -0400
+Processing by WordsController#index as */*
+  [1m[36mWord Load (0.4ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:25
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/words" for ::1 at 2019-09-10 22:17:39 -0400
+Processing by WordsController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:31:in `word_params'
+app/controllers/words_controller.rb:9:in `create'
+Started POST "/words/new" for ::1 at 2019-09-10 22:18:03 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/words/new"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/words/" for ::1 at 2019-09-10 22:18:10 -0400
+Processing by WordsController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:31:in `word_params'
+app/controllers/words_controller.rb:9:in `create'
+Started POST "/words" for ::1 at 2019-09-10 22:18:15 -0400
+Processing by WordsController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:31:in `word_params'
+app/controllers/words_controller.rb:9:in `create'
+Started POST "/words" for ::1 at 2019-09-10 22:18:54 -0400
+Processing by WordsController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:31:in `word_params'
+app/controllers/words_controller.rb:9:in `create'
+Started POST "/words" for ::1 at 2019-09-10 22:19:08 -0400
+Processing by WordsController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:31:in `word_params'
+app/controllers/words_controller.rb:9:in `create'
+Started POST "/words" for ::1 at 2019-09-10 22:24:32 -0400
+Processing by WordsController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:31:in `word_params'
+app/controllers/words_controller.rb:9:in `create'
+Started POST "/words" for ::1 at 2019-09-10 22:25:07 -0400
+Processing by WordsController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:31:in `word_params'
+app/controllers/words_controller.rb:9:in `create'
+Started POST "/words" for ::1 at 2019-09-10 22:29:29 -0400
+Processing by WordsController#create as JSON
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:31:in `word_params'
+app/controllers/words_controller.rb:9:in `create'
+Started GET "/words" for ::1 at 2019-09-10 22:31:11 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.2ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:25
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/words" for ::1 at 2019-09-10 22:33:09 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (2.0ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:25
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/posts" for ::1 at 2019-09-10 22:44:09 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/gulnoza/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [GET] "/posts"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/posts" for ::1 at 2019-09-10 22:44:29 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/posts"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/words" for ::1 at 2019-09-10 22:50:30 -0400
+Processing by WordsController#create as JSON
+Completed 400 Bad Request in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:31:in `word_params'
+app/controllers/words_controller.rb:9:in `create'
+Started POST "/words" for ::1 at 2019-09-10 22:51:33 -0400
+Processing by WordsController#create as JSON
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:31:in `word_params'
+app/controllers/words_controller.rb:9:in `create'
+Started POST "/words" for ::1 at 2019-09-10 22:51:35 -0400
+Processing by WordsController#create as JSON
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:31:in `word_params'
+app/controllers/words_controller.rb:9:in `create'
+Started POST "/words" for ::1 at 2019-09-10 22:53:27 -0400
+Processing by WordsController#create as JSON
+Completed 500 Internal Server Error in 1220812ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/words" for ::1 at 2019-09-10 23:13:48 -0400
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/words_controller.rb:10:in `create'
+Processing by WordsController#create as JSON
+Completed 500 Internal Server Error in 4453ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/words_controller.rb:10:in `create'
+Started POST "/words" for ::1 at 2019-09-10 23:22:27 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/gulnoza/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WordsController#create as JSON
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:33:in `word_params'
+app/controllers/words_controller.rb:10:in `create'
+Started POST "/words" for ::1 at 2019-09-10 23:23:05 -0400
+Processing by WordsController#create as JSON
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:33:in `word_params'
+app/controllers/words_controller.rb:10:in `create'
+Started POST "/words" for ::1 at 2019-09-10 23:26:23 -0400
+Processing by WordsController#create as JSON
+Started POST "/words" for ::1 at 2019-09-10 23:31:20 -0400
+Completed 500 Internal Server Error in 296646ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/words_controller.rb:10:in `create'
+Processing by WordsController#create as JSON
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:10
+  [1m[35m (2.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/words_controller.rb:10
+Completed 200 OK in 222ms (Views: 38.7ms | ActiveRecord: 10.5ms)
+
+
+Started POST "/words" for ::1 at 2019-09-10 23:31:34 -0400
+Processing by WordsController#create as JSON
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:10
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/words_controller.rb:10
+Completed 200 OK in 36ms (Views: 4.8ms | ActiveRecord: 0.8ms)
+
+
+  [1m[36mWord Load (0.5ms)[0m  [1m[34mSELECT  "words".* FROM "words" LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/words" for ::1 at 2019-09-10 23:33:10 -0400
+Processing by WordsController#create as JSON
+  [1m[35m (2.9ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:10
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/words_controller.rb:10
+Completed 200 OK in 43ms (Views: 5.3ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/words" for ::1 at 2019-09-10 23:33:39 -0400
+Processing by WordsController#create as JSON
+  [1m[35m (9.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:10
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/words_controller.rb:10
+Completed 200 OK in 80ms (Views: 5.2ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/words" for ::1 at 2019-09-10 23:34:00 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (1.1ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:26
+Completed 200 OK in 173ms (Views: 166.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/words" for ::1 at 2019-09-10 23:34:12 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.8ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:26
+Completed 200 OK in 51ms (Views: 48.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/words" for ::1 at 2019-09-10 23:37:52 -0400
+Processing by WordsController#create as JSON
+Completed 400 Bad Request in 33ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:33:in `word_params'
+app/controllers/words_controller.rb:10:in `create'
+Started POST "/words" for ::1 at 2019-09-10 23:38:25 -0400
+Processing by WordsController#create as JSON
+Completed 400 Bad Request in 29ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:33:in `word_params'
+app/controllers/words_controller.rb:10:in `create'
+Started POST "/words" for ::1 at 2019-09-10 23:50:57 -0400
+Processing by WordsController#create as JSON
+Completed 400 Bad Request in 57ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:33:in `word_params'
+app/controllers/words_controller.rb:10:in `create'
+Started POST "/words" for ::1 at 2019-09-10 23:52:18 -0400
+Processing by WordsController#create as JSON
+Completed 400 Bad Request in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:33:in `word_params'
+app/controllers/words_controller.rb:10:in `create'
+Started POST "/words" for ::1 at 2019-09-10 23:57:46 -0400
+Processing by WordsController#create as JSON
+Completed 400 Bad Request in 46ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:33:in `word_params'
+app/controllers/words_controller.rb:10:in `create'
+Started POST "/words" for ::1 at 2019-09-11 00:03:16 -0400
+Processing by WordsController#create as JSON
+Completed 400 Bad Request in 41ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:33:in `word_params'
+app/controllers/words_controller.rb:10:in `create'
+Started POST "/words" for ::1 at 2019-09-11 00:05:33 -0400
+Processing by WordsController#create as JSON
+Completed 400 Bad Request in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:33:in `word_params'
+app/controllers/words_controller.rb:10:in `create'
+Started POST "/words" for ::1 at 2019-09-11 00:06:05 -0400
+Processing by WordsController#create as JSON
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:33:in `word_params'
+app/controllers/words_controller.rb:10:in `create'
+Started POST "/words" for ::1 at 2019-09-11 00:06:55 -0400
+Processing by WordsController#create as JSON
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:33:in `word_params'
+app/controllers/words_controller.rb:10:in `create'
+Started POST "/words" for ::1 at 2019-09-11 00:08:33 -0400
+Processing by WordsController#create as JSON
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:33:in `word_params'
+app/controllers/words_controller.rb:10:in `create'
+Started POST "/words" for ::1 at 2019-09-11 00:20:05 -0400
+Processing by WordsController#create as JSON
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:33:in `word_params'
+app/controllers/words_controller.rb:10:in `create'
+Started POST "/words" for ::1 at 2019-09-11 00:24:46 -0400
+Processing by WordsController#create as JSON
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: word):
+  
+app/controllers/words_controller.rb:33:in `word_params'
+app/controllers/words_controller.rb:10:in `create'
+Started POST "/words" for ::1 at 2019-09-11 00:30:14 -0400
+Processing by WordsController#create as JSON
+Completed 500 Internal Server Error in 32465746ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/words_controller.rb:10:in `create'
+Started POST "/words" for ::1 at 2019-09-11 09:31:52 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/gulnoza/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+SyntaxError (/Users/gulnoza/Development/group_project_mod3/customEnglishDictionary/app/controllers/words_controller.rb:36: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/words_controller.rb:36: syntax error, unexpected end-of-input, expecting end
+Started POST "/words" for ::1 at 2019-09-11 10:09:25 -0400
+  
+SyntaxError (/Users/gulnoza/Development/group_project_mod3/customEnglishDictionary/app/controllers/words_controller.rb:36: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/words_controller.rb:36: syntax error, unexpected end-of-input, expecting end
+Started POST "/words" for ::1 at 2019-09-11 10:10:15 -0400
+  
+SyntaxError (/Users/gulnoza/Development/group_project_mod3/customEnglishDictionary/app/controllers/words_controller.rb:36: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/words_controller.rb:36: syntax error, unexpected end-of-input, expecting end
+Started POST "/words" for ::1 at 2019-09-11 10:10:16 -0400
+  
+SyntaxError (/Users/gulnoza/Development/group_project_mod3/customEnglishDictionary/app/controllers/words_controller.rb:36: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/words_controller.rb:36: syntax error, unexpected end-of-input, expecting end
+Started POST "/words" for ::1 at 2019-09-11 10:10:17 -0400
+  
+SyntaxError (/Users/gulnoza/Development/group_project_mod3/customEnglishDictionary/app/controllers/words_controller.rb:36: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/words_controller.rb:36: syntax error, unexpected end-of-input, expecting end
+Started POST "/words" for ::1 at 2019-09-11 10:10:19 -0400
+  
+SyntaxError (/Users/gulnoza/Development/group_project_mod3/customEnglishDictionary/app/controllers/words_controller.rb:36: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/words_controller.rb:36: syntax error, unexpected end-of-input, expecting end
+Started POST "/words" for ::1 at 2019-09-11 10:18:27 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/gulnoza/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+SyntaxError (/Users/gulnoza/Development/group_project_mod3/customEnglishDictionary/app/controllers/words_controller.rb:36: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/words_controller.rb:36: syntax error, unexpected end-of-input, expecting end
+Started POST "/words" for ::1 at 2019-09-11 10:19:06 -0400
+Processing by WordsController#create as JSON
+Started POST "/words" for ::1 at 2019-09-11 10:21:38 -0400
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/words_controller.rb:10
+Completed 200 OK in 152348ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Processing by WordsController#create as JSON
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/words_controller.rb:10
+Completed 200 OK in 22995ms (Views: 0.2ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/words" for ::1 at 2019-09-11 10:22:22 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/gulnoza/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WordsController#create as JSON
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/words_controller.rb:10
+Completed 200 OK in 9813ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/words" for ::1 at 2019-09-11 10:23:08 -0400
+Processing by WordsController#create as JSON
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+Completed 200 OK in 84684ms (Views: 0.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/words" for ::1 at 2019-09-11 10:24:32 -0400
+Processing by WordsController#create as JSON
+  Parameters: {"name"=>"test", "imgurl"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5TH43KjTPkOGsCqmw8hjBcrHO-erQelSZ0FWlA29r0zOoJW92hg", "definition"=>"test", "example"=>"test", "user_id"=>1, "word"=>{"name"=>"test", "imgurl"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5TH43KjTPkOGsCqmw8hjBcrHO-erQelSZ0FWlA29r0zOoJW92hg", "definition"=>"test", "example"=>"test", "user_id"=>1}}
+Unpermitted parameters: :example, :word
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mWord Create (1.4ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "test"], ["imgurl", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5TH43KjTPkOGsCqmw8hjBcrHO-erQelSZ0FWlA29r0zOoJW92hg"], ["definition", "test"], ["user_id", 1], ["created_at", "2019-09-11 14:24:32.868112"], ["updated_at", "2019-09-11 14:24:32.868112"]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+Completed 200 OK in 209962ms (Views: 1.7ms | ActiveRecord: 3.6ms)
+
+
+  [1m[36mWord Load (0.3ms)[0m  [1m[34mSELECT  "words".* FROM "words" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/words" for ::1 at 2019-09-11 10:31:41 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/gulnoza/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.1ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:26
+Completed 200 OK in 11ms (Views: 6.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/words" for ::1 at 2019-09-11 10:32:14 -0400
+Processing by WordsController#create as JSON
+  Parameters: {"name"=>"test", "imgurl"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5TH43KjTPkOGsCqmw8hjBcrHO-erQelSZ0FWlA29r0zOoJW92hg", "definition"=>"test", "example"=>"test", "user_id"=>1, "word"=>{"name"=>"test", "imgurl"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5TH43KjTPkOGsCqmw8hjBcrHO-erQelSZ0FWlA29r0zOoJW92hg", "definition"=>"test", "example"=>"test", "user_id"=>1}}
+Unpermitted parameters: :example, :word
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mWord Create (0.4ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "test"], ["imgurl", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5TH43KjTPkOGsCqmw8hjBcrHO-erQelSZ0FWlA29r0zOoJW92hg"], ["definition", "test"], ["user_id", 1], ["created_at", "2019-09-11 14:32:14.173991"], ["updated_at", "2019-09-11 14:32:14.173991"]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+Completed 200 OK in 35ms (Views: 0.2ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/words" for ::1 at 2019-09-11 10:32:45 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.1ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:26
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/words" for ::1 at 2019-09-11 10:47:56 -0400
+Processing by WordsController#create as JSON
+  Parameters: {"name"=>"zoo", "imgurl"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5TH43KjTPkOGsCqmw8hjBcrHO-erQelSZ0FWlA29r0zOoJW92hg", "definition"=>"zu", "example"=>[], "user_id"=>1, "word"=>{"name"=>"zoo", "imgurl"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5TH43KjTPkOGsCqmw8hjBcrHO-erQelSZ0FWlA29r0zOoJW92hg", "definition"=>"zu", "example"=>[], "user_id"=>1}}
+Unpermitted parameters: :example, :word
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mWord Create (0.5ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "zoo"], ["imgurl", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5TH43KjTPkOGsCqmw8hjBcrHO-erQelSZ0FWlA29r0zOoJW92hg"], ["definition", "zu"], ["user_id", 1], ["created_at", "2019-09-11 14:47:56.812160"], ["updated_at", "2019-09-11 14:47:56.812160"]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/words" for ::1 at 2019-09-11 10:48:01 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.3ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:26
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.3ms)
+
+
