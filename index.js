@@ -84,7 +84,7 @@ function bodyImg(image) {
        
    
 }     
-
+let currentInterval
 function slapOneOnTheDom(wordObj) {
 
     if (Object.keys(wordObj)[0] != 'success') {
@@ -122,14 +122,14 @@ function slapOneOnTheDom(wordObj) {
             ol.lastElementChild.style.cursor = "pointer"
         })
     
-        imgArr.forEach(() => {
+        imgArr.forEach(img => {
             
-            
-            setTimeout(() => {
+            if (currentInterval){clearInterval(currentInterval)}
+            currentInterval = setInterval(function(){
                 wordImg = imgArr[[Math.floor(Math.random() * imgArr.length)]].largeImageURL
                 console.log(imgArr.length)
                 body.background = wordImg;
-            }, 5000);
+            }, 4000);
         });
     }
 

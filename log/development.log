@@ -1362,3 +1362,34 @@ Processing by WordsController#index as HTML
 Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/words" for ::1 at 2019-09-11 15:32:14 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/gulnoza/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.1ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:26
+Completed 200 OK in 12ms (Views: 7.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/words" for ::1 at 2019-09-11 15:32:34 -0400
+Processing by WordsController#create as JSON
+  Parameters: {"name"=>"go", "imgurl"=>"https://pixabay.com/get/55e5d6454b57a914f6da8c7dda79367d1037dbe756586c48702973d69549c659b1_1280.jpg", "definition"=>"Follow a certain course", "example"=>["How did your interview go?"], "user_id"=>1, "word"=>{"name"=>"go", "imgurl"=>"https://pixabay.com/get/55e5d6454b57a914f6da8c7dda79367d1037dbe756586c48702973d69549c659b1_1280.jpg", "definition"=>"Follow a certain course", "example"=>["How did your interview go?"], "user_id"=>1}}
+Unpermitted parameters: :example, :word
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[36mWord Create (0.4ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "go"], ["imgurl", "https://pixabay.com/get/55e5d6454b57a914f6da8c7dda79367d1037dbe756586c48702973d69549c659b1_1280.jpg"], ["definition", "Follow a certain course"], ["user_id", 1], ["created_at", "2019-09-11 19:32:34.138222"], ["updated_at", "2019-09-11 19:32:34.138222"]]
+  ↳ app/controllers/words_controller.rb:9
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:9
+Completed 200 OK in 32ms (Views: 0.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/words" for ::1 at 2019-09-11 15:32:50 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.2ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:26
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.2ms)
+
+
