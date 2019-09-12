@@ -1578,3 +1578,239 @@ puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
   [1m[36mUser Create (11.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "boo"], ["email", "betodute@gmail.com"], ["password_digest", "$2a$12$6NpqiBM5zZByi0cg.CfpKeN8jVV7D18WQFe3aseUKPXhNK.EAoA/K"], ["created_at", "2019-09-11 21:47:32.330157"], ["updated_at", "2019-09-11 21:47:32.330157"]]
   [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/users" for ::1 at 2019-09-11 18:33:05 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Alberto/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"Gz", "email"=>"gz@gz", "password"=>"[FILTERED]", "user"=>{"name"=>"Gz", "email"=>"gz@gz"}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+  [1m[36mUser Create (3.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gz"], ["email", "gz@gz"], ["password_digest", "$2a$12$ZHeyiG5txlFB0Dhm121ReujYImXLjj8v88B/nMwjof3QW3ZXWFfqK"], ["created_at", "2019-09-11 22:33:06.466608"], ["updated_at", "2019-09-11 22:33:06.466608"]]
+  ↳ app/controllers/users_controller.rb:4
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 377ms (Views: 2.3ms | ActiveRecord: 5.4ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/users" for ::1 at 2019-09-11 18:38:00 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"boom", "email"=>"boom", "password"=>"[FILTERED]", "user"=>{"name"=>"boom", "email"=>"boom"}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "boom"], ["email", "boom"], ["password_digest", "$2a$12$y5BCEBeYITN4zledHFonV.2qtzTX77kuZAabage.VZFak5ehYEIxa"], ["created_at", "2019-09-11 22:38:00.929992"], ["updated_at", "2019-09-11 22:38:00.929992"]]
+  ↳ app/controllers/users_controller.rb:4
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 394ms (Views: 0.4ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/users" for ::1 at 2019-09-11 18:39:22 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"boom", "email"=>"BOOM", "password"=>"[FILTERED]", "user"=>{"name"=>"boom", "email"=>"BOOM"}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "boom"], ["email", "BOOM"], ["password_digest", "$2a$12$W2W0t.U2aSHisgarcayfoundOsmz9rQ66sSm7K8gwzrJHVyXQv8q6"], ["created_at", "2019-09-11 22:39:22.801623"], ["updated_at", "2019-09-11 22:39:22.801623"]]
+  ↳ app/controllers/users_controller.rb:4
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 395ms (Views: 0.6ms | ActiveRecord: 5.4ms)
+
+
+Started POST "/users" for ::1 at 2019-09-11 18:43:02 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"test", "email"=>"test", "password"=>"[FILTERED]", "user"=>{"name"=>"test", "email"=>"test"}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+  [1m[36mUser Create (3.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "test"], ["email", "test"], ["password_digest", "$2a$12$NWqd5yh4RqWpvgzI4ieSguuhgfm2zROgJyTXeyf67Jk9W8/4nEyB2"], ["created_at", "2019-09-11 22:43:03.150477"], ["updated_at", "2019-09-11 22:43:03.150477"]]
+  ↳ app/controllers/users_controller.rb:4
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 404ms (Views: 0.2ms | ActiveRecord: 6.3ms)
+
+
+Started POST "/users" for ::1 at 2019-09-11 18:44:09 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"test", "email"=>"boombomm", "password"=>"[FILTERED]", "user"=>{"name"=>"test", "email"=>"boombomm"}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "test"], ["email", "boombomm"], ["password_digest", "$2a$12$vC7L6qpTSzvhXhgBZMLYGec.W4Aau2KmxvyF003f7UGzmtF6yhTny"], ["created_at", "2019-09-11 22:44:10.415754"], ["updated_at", "2019-09-11 22:44:10.415754"]]
+  ↳ app/controllers/users_controller.rb:4
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 500 Internal Server Error in 176829ms (Views: 0.5ms | ActiveRecord: 4.6ms)
+
+
+  
+Started POST "/users" for ::1 at 2019-09-11 18:47:06 -0400
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:6:in `create'
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"test", "email"=>"test", "password"=>"[FILTERED]", "user"=>{"name"=>"test", "email"=>"test"}}
+Unpermitted parameter: :user
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "test"], ["email", "test"], ["password_digest", "$2a$12$eoARttV0OTKc41xSkOTkTOx5kTJnAJaPFe.ru8AW1u1m/17cSD8em"], ["created_at", "2019-09-11 22:47:08.040732"], ["updated_at", "2019-09-11 22:47:08.040732"]]
+  ↳ app/controllers/users_controller.rb:4
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 9792ms (Views: 0.3ms | ActiveRecord: 5.6ms)
+
+
+Started POST "/users" for ::1 at 2019-09-11 18:48:31 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Alberto/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"tets", "email"=>"teys", "password"=>"[FILTERED]", "user"=>{"name"=>"tets", "email"=>"teys"}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "tets"], ["email", "teys"], ["password_digest", "$2a$12$nQqV0nS8PiSyDRp0QgjZpubd19i0rxfQmv5T0Yx24lzI.GpO1cMiG"], ["created_at", "2019-09-11 22:48:31.608203"], ["updated_at", "2019-09-11 22:48:31.608203"]]
+  ↳ app/controllers/users_controller.rb:4
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 369ms (Views: 0.5ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/users" for ::1 at 2019-09-11 18:50:32 -0400
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"test", "email"=>"test", "password"=>"[FILTERED]", "user"=>{"name"=>"test", "email"=>"test"}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "test"], ["email", "test"], ["password_digest", "$2a$12$oKB/DNEPc/yxNaINNqsGH.7zyCe1EYRSiWgbDwDdMQoTLEySc2hf6"], ["created_at", "2019-09-11 22:50:32.905440"], ["updated_at", "2019-09-11 22:50:32.905440"]]
+  ↳ app/controllers/users_controller.rb:4
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 411ms (Views: 0.4ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/users" for ::1 at 2019-09-11 18:54:16 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"boom", "email"=>"boomGZ", "password"=>"[FILTERED]", "user"=>{"name"=>"boom", "email"=>"boomGZ"}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "boom"], ["email", "boomGZ"], ["password_digest", "$2a$12$36IQaxIyRrOUTlCMvCTnIOcRASpZZtD/ecWGVXEo/q9B9WDl6vwQa"], ["created_at", "2019-09-11 22:54:16.438420"], ["updated_at", "2019-09-11 22:54:16.438420"]]
+  ↳ app/controllers/users_controller.rb:4
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 369ms (Views: 0.4ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/users" for ::1 at 2019-09-11 18:57:31 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"beto", "email"=>"betottttt", "password"=>"[FILTERED]", "user"=>{"name"=>"beto", "email"=>"betottttt"}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "beto"], ["email", "betottttt"], ["password_digest", "$2a$12$MSsf2PONkRS89DETKRwbceA2MJbGYAQf9vNwj9l3Wx7dJiY9eAbQ2"], ["created_at", "2019-09-11 22:57:31.953031"], ["updated_at", "2019-09-11 22:57:31.953031"]]
+  ↳ app/controllers/users_controller.rb:4
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 379ms (Views: 0.4ms | ActiveRecord: 4.3ms)
+
+
+Started POST "/users" for ::1 at 2019-09-11 18:58:25 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"cccc", "email"=>"cccc", "password"=>"[FILTERED]", "user"=>{"name"=>"cccc", "email"=>"cccc"}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "cccc"], ["email", "cccc"], ["password_digest", "$2a$12$BEIPBtoE0K8o9pkpX6C92eQo9kBd84piVblfTkX9TlA8RCpSU6NxS"], ["created_at", "2019-09-11 22:58:25.779960"], ["updated_at", "2019-09-11 22:58:25.779960"]]
+  ↳ app/controllers/users_controller.rb:4
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 424ms (Views: 0.4ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/users" for ::1 at 2019-09-11 18:59:16 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"ggggg", "email"=>"ggggg", "password"=>"[FILTERED]", "user"=>{"name"=>"ggggg", "email"=>"ggggg"}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "ggggg"], ["email", "ggggg"], ["password_digest", "$2a$12$TyGHIawPk/0XH2GbA3yKFOYztJvXqqFe62YwR1sZyvOaCeOfX06Wy"], ["created_at", "2019-09-11 22:59:16.770458"], ["updated_at", "2019-09-11 22:59:16.770458"]]
+  ↳ app/controllers/users_controller.rb:4
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 363ms (Views: 0.4ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/users" for ::1 at 2019-09-11 19:00:43 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"boom", "email"=>"boomie", "password"=>"[FILTERED]", "user"=>{"name"=>"boom", "email"=>"boomie"}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "boom"], ["email", "boomie"], ["password_digest", "$2a$12$M6vVGHeqRe/bx2dcCx5PHec2VcwFK7FKIRad7U7xAMiDlGhW9VY4a"], ["created_at", "2019-09-11 23:00:44.341355"], ["updated_at", "2019-09-11 23:00:44.341355"]]
+  ↳ app/controllers/users_controller.rb:4
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 365ms (Views: 0.5ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/users" for ::1 at 2019-09-11 20:32:52 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"lyric", "email"=>"ljdlfkjld", "password"=>"[FILTERED]", "user"=>{"name"=>"lyric", "email"=>"ljdlfkjld"}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "lyric"], ["email", "ljdlfkjld"], ["password_digest", "$2a$12$pJQQc7x0d5nhQKmC14KmNeQuC2pnFFAQcvxDOtvle27.qHOs/SC3S"], ["created_at", "2019-09-12 00:32:52.394254"], ["updated_at", "2019-09-12 00:32:52.394254"]]
+  ↳ app/controllers/users_controller.rb:4
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 360ms (Views: 0.4ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/words" for ::1 at 2019-09-11 21:56:03 -0400
+Processing by WordsController#create as JSON
+  Parameters: {"name"=>"cloud", "imgurl"=>"https://pixabay.com/get/54e2d5434f5ab108f5d084609629347b1d3adce05a4c704c732779d1944ec05c_1280.jpg", "definition"=>"A group of many things in the air or on the ground", "example"=>["Clouds of blossoms", "It discharged a cloud of spores"], "user_id"=>1, "word"=>{"name"=>"cloud", "imgurl"=>"https://pixabay.com/get/54e2d5434f5ab108f5d084609629347b1d3adce05a4c704c732779d1944ec05c_1280.jpg", "definition"=>"A group of many things in the air or on the ground", "example"=>["Clouds of blossoms", "It discharged a cloud of spores"], "user_id"=>1}}
+Unpermitted parameters: :example, :word
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mWord Create (2.3ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "cloud"], ["imgurl", "https://pixabay.com/get/54e2d5434f5ab108f5d084609629347b1d3adce05a4c704c732779d1944ec05c_1280.jpg"], ["definition", "A group of many things in the air or on the ground"], ["user_id", 1], ["created_at", "2019-09-12 01:56:03.736413"], ["updated_at", "2019-09-12 01:56:03.736413"]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+Completed 200 OK in 45ms (Views: 0.5ms | ActiveRecord: 4.9ms)
+
+
+Started POST "/words" for ::1 at 2019-09-11 21:56:05 -0400
+Processing by WordsController#create as JSON
+  Parameters: {"name"=>"cloud", "imgurl"=>"https://pixabay.com/get/54e2d5434f5ab108f5d084609629347b1d3adce05a4c704c732779d1944ec05c_1280.jpg", "definition"=>"Make overcast or cloudy", "example"=>["Clouds of blossoms", "It discharged a cloud of spores"], "user_id"=>1, "word"=>{"name"=>"cloud", "imgurl"=>"https://pixabay.com/get/54e2d5434f5ab108f5d084609629347b1d3adce05a4c704c732779d1944ec05c_1280.jpg", "definition"=>"Make overcast or cloudy", "example"=>["Clouds of blossoms", "It discharged a cloud of spores"], "user_id"=>1}}
+Unpermitted parameters: :example, :word
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mWord Create (0.6ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "cloud"], ["imgurl", "https://pixabay.com/get/54e2d5434f5ab108f5d084609629347b1d3adce05a4c704c732779d1944ec05c_1280.jpg"], ["definition", "Make overcast or cloudy"], ["user_id", 1], ["created_at", "2019-09-12 01:56:05.917914"], ["updated_at", "2019-09-12 01:56:05.917914"]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/users" for ::1 at 2019-09-11 21:57:15 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"jhjj", "email"=>"jhj", "password"=>"[FILTERED]", "user"=>{"name"=>"jhjj", "email"=>"jhj"}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "jhjj"], ["email", "jhj"], ["password_digest", "$2a$12$8/xYWR7/zXS63i0wrgnHmOXFOTZFKM/zYT8dRPHm8o.FHdx4ZJc62"], ["created_at", "2019-09-12 01:57:15.870315"], ["updated_at", "2019-09-12 01:57:15.870315"]]
+  ↳ app/controllers/users_controller.rb:4
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 359ms (Views: 0.6ms | ActiveRecord: 5.2ms)
+
+
