@@ -17,7 +17,7 @@ let wordPronounce = ''
 let exampleArr = []
 let wordImg = ''
 let imgArr=[]
-
+let word_id=''
 const find_users_word_button = document.querySelector("#find_users_word")
 const loginUserButton = document.querySelector("#loginUserButton")
 const createUserButton = document.querySelector("#createUserButton")
@@ -235,7 +235,9 @@ function likeCallback(event) {
     event.preventDefault()
     let heart = event.target
     let li = event.target.parentElement.parentElement
+    
     if (event.target.className == 'like-glyph') {
+        if (heart.innerText != FULL_HEART){
         heart.innerText = FULL_HEART;
         heart.style.color = 'red';
 
@@ -282,9 +284,27 @@ function likeCallback(event) {
         })
             .then(res => res.json())
 
-            .then(console.log)
+            .then(res=> {word_id=res.id})
          }
 
+        else if (heart.innerText == FULL_HEART){
+
+            heart.innerText = EMPTY_HEART;
+            heart.style.color = 'wight';
+
+            fetch(`http://localhost:3000/words/${word_id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(res=>res.json())
+            .then(console.log)
+
+        }
+        }
+        
 }
 
 form_to_search.addEventListener('submit', fetch_requested_word)

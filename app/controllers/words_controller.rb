@@ -34,6 +34,12 @@ class WordsController < ApplicationController
     render json: words
     end
 
+    def destroy
+    Word.delete(params[:id])
+    
+    render json: {word: 'deleted'}
+    end
+
     private
     def word_params
         
