@@ -55,15 +55,14 @@ function renderCreateForm(event) {
   <input id="createUserFormInputName" type="text" name="name" placeholder="Name" autocomplete="off" />
   <input id="createUserFormInputEmail" type="text" name="email" placeholder="E-mail" autocomplete="off" />
   <input id="createUserFormInputPassword" type="text" name="password" placeholder="Password" autocomplete="off" />
-  <button id="createUserSubmitButton" type="click"> Create User </button>
   </form> 
+  <button id="createUserSubmitButton" type="click"> Create User </button>
   `
     const createUserSubmitButton = document.querySelector("#createUserSubmitButton")
     createUserSubmitButton.addEventListener("click", createUserFetch)
 }
 
 function createUserFetch(event) {
-
     const name = document.querySelector("#createUserFormInputName").value
     const email = document.querySelector("#createUserFormInputEmail").value
     const password = document.querySelector("#createUserFormInputPassword").value
@@ -79,9 +78,9 @@ function createUserFetch(event) {
             email: email,
             password: password
         })
-    })
+    }) 
     .then(response => response.json())
-    .then(renderUser)
+    .then(console.log)
 }
 
 function renderUser(data) {
