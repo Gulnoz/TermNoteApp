@@ -18,7 +18,7 @@ let exampleArr = []
 let wordImg = ''
 let imgArr=[]
 
-
+const find_users_word_button = document.querySelector("#find_users_word")
 const loginUserButton = document.querySelector("#loginUserButton")
 const createUserButton = document.querySelector("#createUserButton")
 const loginUserSection = document.querySelector("#loginUserSection")
@@ -102,15 +102,61 @@ function fetchImg() {
             console.log(imgArr)
             wordImg = imgArr[[Math.floor(Math.random() * imgArr.length)]].largeImageURL})
 }
+let user_id=1
+find_users_word_button.addEventListener('click', fetchMyWords)
 
 function fetchMyWords() {
+    ol.innerHTML = ''
+    fetch(`http://localhost:3000/my_words`, {
+        method: 'POST',
 
-    fetch(`http://localhost:3000/my_words`)
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+            id: user_id,
+           
+        })
+    })
         .then(res => res.json())
-        .then(res => {console.log(res)})
+        .then(wordsObj => wordsObj.forEach(slapMyWordsOnDOM))
 }
 
+function slapMyWordsOnDOM(wordObj){
 
+    
+    ol.innerHTML += `<li class='my-Word' data-id=${wordObj.id}><div>${wordObj.name}</div><div>${wordObj.definition}</div></li>`
+
+}
+
+ol.addEventListener('click', showMyWord)
+
+function showMyWord(event){
+    event.preventDefault()
+    if (event.target.parentElement.className =='my-Word' ){
+        fetchMyWord(event)
+    }
+}
+
+function fetchMyWord(event){
+    ol.innerHTML = ''
+let word_id=event.target.parentElement.dataset.id
+    fetch(`http://localhost:3000/words/${word_id}`)
+        .then(resp => resp.json())
+        .then(slapMyWordOnDOM)
+}
+function slapMyWordOnDOM(wordObj){
+    body.background = wordObj.imgurl
+    ol.innerHTML += `<p class='my-Word' data-id=${wordObj.id}><h2>${wordObj.name}</h2></p>
+    <p>${wordObj.definition}</p>
+    <p>${wordObj.example}</p>
+   
+    `
+   
+   
+}
 function bodyImg(image) {
    
         wordImg = image
@@ -121,7 +167,7 @@ function bodyImg(image) {
 }     
 let currentInterval
 function slapOneOnTheDom(wordObj) {
-
+    exampleArr=[]
     if (Object.keys(wordObj)[0] != 'success') {
        
         bodyImg(wordImg)
@@ -199,24 +245,25 @@ function likeCallback(event) {
         examples = li.querySelectorAll('.word-example')
 
 
-        console.log(word)
-        console.log(wordPronounce)
-        console.log(partOfSpeech)
-        console.log(selectedDef)
-
-        if (examples) {
-
+        // console.log(word)
+        // console.log(wordPronounce)
+        // console.log(partOfSpeech)
+        // console.log(selectedDef)
+        // console.log(examples)
+        if (examples.length>0) {
+            
              examples.forEach(ex => {
+                 
                 exampleArr.push(ex.innerText)
-
+                 
             })
-            // console.log(exampleArr)
+            //  console.log(`${exampleArr}`)
         }
         let word_inst = {
             name: word,
             imgurl: wordImg,
             definition: selectedDef,
-            example: exampleArr,
+            example: JSON.stringify(exampleArr),
             user_id: 1
         }
         // let data = new FormData();

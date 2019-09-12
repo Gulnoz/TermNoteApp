@@ -1569,3 +1569,662 @@ puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
 puma (3.12.1) lib/puma/server.rb:474:in `process_client'
 puma (3.12.1) lib/puma/server.rb:334:in `block in run'
 puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2019-09-11 21:59:25 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/gulnoza/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/gulnoza/.rvm/gems/ruby-2.6.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/gulnoza/.rvm/gems/ruby-2.6.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (3.3ms)
+Completed 200 OK in 16ms (Views: 12.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/words" for ::1 at 2019-09-11 21:59:33 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.6ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:33
+Completed 200 OK in 30ms (Views: 20.4ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/words" for ::1 at 2019-09-11 22:00:42 -0400
+Processing by WordsController#create as JSON
+  Parameters: {"name"=>"duck", "imgurl"=>"https://pixabay.com/get/55e5d7444f5aa914f6da8c7dda79367d1037dbe756586c48702973d6924ec150be_1280.jpg", "definition"=>"Dip into a liquid", "example"=>[], "user_id"=>1, "word"=>{"name"=>"duck", "imgurl"=>"https://pixabay.com/get/55e5d7444f5aa914f6da8c7dda79367d1037dbe756586c48702973d6924ec150be_1280.jpg", "definition"=>"Dip into a liquid", "example"=>[], "user_id"=>1}}
+Unpermitted parameters: :example, :word
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mWord Create (1.1ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "duck"], ["imgurl", "https://pixabay.com/get/55e5d7444f5aa914f6da8c7dda79367d1037dbe756586c48702973d6924ec150be_1280.jpg"], ["definition", "Dip into a liquid"], ["user_id", 1], ["created_at", "2019-09-12 02:00:43.040215"], ["updated_at", "2019-09-12 02:00:43.040215"]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+Completed 200 OK in 51ms (Views: 0.5ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/words" for ::1 at 2019-09-11 22:00:48 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.2ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:33
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/words" for ::1 at 2019-09-11 22:01:24 -0400
+Processing by WordsController#create as JSON
+  Parameters: {"name"=>"love", "imgurl"=>"https://pixabay.com/get/57e5d14a495ba514f6da8c7dda79367d1037dbe756586c48702973d6924ec35fbd_1280.jpg", "definition"=>"Get pleasure from", "example"=>["I love cooking"], "user_id"=>1, "word"=>{"name"=>"love", "imgurl"=>"https://pixabay.com/get/57e5d14a495ba514f6da8c7dda79367d1037dbe756586c48702973d6924ec35fbd_1280.jpg", "definition"=>"Get pleasure from", "example"=>["I love cooking"], "user_id"=>1}}
+Unpermitted parameters: :example, :word
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mWord Create (0.5ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "love"], ["imgurl", "https://pixabay.com/get/57e5d14a495ba514f6da8c7dda79367d1037dbe756586c48702973d6924ec35fbd_1280.jpg"], ["definition", "Get pleasure from"], ["user_id", 1], ["created_at", "2019-09-12 02:01:24.482891"], ["updated_at", "2019-09-12 02:01:24.482891"]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/words" for ::1 at 2019-09-11 22:01:30 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.3ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:33
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/words" for ::1 at 2019-09-11 22:08:51 -0400
+Processing by WordsController#create as JSON
+  Parameters: {"name"=>"love", "imgurl"=>"https://pixabay.com/get/57e4d74b4d54b108f5d084609629347b1d3adce05a4c704c732779d1944bc25d_1280.jpg", "definition"=>"A strong positive emotion of regard and affection", "example"=>["I love cooking", "His love for his work", "Children need a lot of love"], "user_id"=>1, "word"=>{"name"=>"love", "imgurl"=>"https://pixabay.com/get/57e4d74b4d54b108f5d084609629347b1d3adce05a4c704c732779d1944bc25d_1280.jpg", "definition"=>"A strong positive emotion of regard and affection", "example"=>["I love cooking", "His love for his work", "Children need a lot of love"], "user_id"=>1}}
+Unpermitted parameters: :example, :word
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mWord Create (0.3ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "love"], ["imgurl", "https://pixabay.com/get/57e4d74b4d54b108f5d084609629347b1d3adce05a4c704c732779d1944bc25d_1280.jpg"], ["definition", "A strong positive emotion of regard and affection"], ["user_id", 1], ["created_at", "2019-09-12 02:08:51.769947"], ["updated_at", "2019-09-12 02:08:51.769947"]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/words" for ::1 at 2019-09-11 22:09:05 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.2ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:33
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/words" for ::1 at 2019-09-11 22:18:09 -0400
+Processing by WordsController#create as JSON
+  Parameters: {"name"=>"mouse", "imgurl"=>"https://pixabay.com/get/57e7d54b4956ab14f6da8c7dda79367d1037dbe756586c48702973d69249c35fbf_1280.jpg", "definition"=>"A hand-operated electronic device that controls the coordinates of a cursor on your computer screen as you move it around on a pad; on the bottom of the device is a ball that rolls on the surface of the pad", "example"=>["a mouse takes much more room than a trackball"], "user_id"=>1, "word"=>{"name"=>"mouse", "imgurl"=>"https://pixabay.com/get/57e7d54b4956ab14f6da8c7dda79367d1037dbe756586c48702973d69249c35fbf_1280.jpg", "definition"=>"A hand-operated electronic device that controls the coordinates of a cursor on your computer screen as you move it around on a pad; on the bottom of the device is a ball that rolls on the surface of the pad", "example"=>["a mouse takes much more room than a trackball"], "user_id"=>1}}
+Unpermitted parameters: :example, :word
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mWord Create (0.3ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "mouse"], ["imgurl", "https://pixabay.com/get/57e7d54b4956ab14f6da8c7dda79367d1037dbe756586c48702973d69249c35fbf_1280.jpg"], ["definition", "A hand-operated electronic device that controls the coordinates of a cursor on your computer screen as you move it around on a pad; on the bottom of the device is a ball that rolls on the surface of the pad"], ["user_id", 1], ["created_at", "2019-09-12 02:18:09.123182"], ["updated_at", "2019-09-12 02:18:09.123182"]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+Completed 200 OK in 7ms (Views: 0.9ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/words" for ::1 at 2019-09-11 22:18:14 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.2ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:33
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/words" for ::1 at 2019-09-11 22:20:29 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.2ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:33
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/words" for ::1 at 2019-09-11 22:20:48 -0400
+Processing by WordsController#create as JSON
+  Parameters: {"name"=>"wow", "imgurl"=>"https://pixabay.com/get/57e3d543425ba414f6da8c7dda79367d1037dbe756586c48702973d69249cd5cbd_1280.png", "definition"=>"Impress greatly", "example"=>["The speaker wowed the audience"], "user_id"=>1, "word"=>{"name"=>"wow", "imgurl"=>"https://pixabay.com/get/57e3d543425ba414f6da8c7dda79367d1037dbe756586c48702973d69249cd5cbd_1280.png", "definition"=>"Impress greatly", "example"=>["The speaker wowed the audience"], "user_id"=>1}}
+Unpermitted parameters: :example, :word
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mWord Create (0.3ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "wow"], ["imgurl", "https://pixabay.com/get/57e3d543425ba414f6da8c7dda79367d1037dbe756586c48702973d69249cd5cbd_1280.png"], ["definition", "Impress greatly"], ["user_id", 1], ["created_at", "2019-09-12 02:20:48.484706"], ["updated_at", "2019-09-12 02:20:48.484706"]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/words" for ::1 at 2019-09-11 22:21:13 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.3ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:33
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/words" for ::1 at 2019-09-11 22:23:10 -0400
+Processing by WordsController#create as JSON
+  Parameters: {"name"=>"love", "imgurl"=>"https://pixabay.com/get/54e2d44a4e4fad0bffd8992cc62b3276103ddbec4e50744f7d2d7ed7914ac0_1280.jpg", "definition"=>"Sexual activities (often including sexual intercourse) between two people", "example"=>["The speaker wowed the audience", "His lovemaking disgusted her", "He hadn't had any love in months", "He has a very complicated love life"], "user_id"=>1, "word"=>{"name"=>"love", "imgurl"=>"https://pixabay.com/get/54e2d44a4e4fad0bffd8992cc62b3276103ddbec4e50744f7d2d7ed7914ac0_1280.jpg", "definition"=>"Sexual activities (often including sexual intercourse) between two people", "example"=>["The speaker wowed the audience", "His lovemaking disgusted her", "He hadn't had any love in months", "He has a very complicated love life"], "user_id"=>1}}
+Unpermitted parameters: :example, :word
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mWord Create (0.6ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "love"], ["imgurl", "https://pixabay.com/get/54e2d44a4e4fad0bffd8992cc62b3276103ddbec4e50744f7d2d7ed7914ac0_1280.jpg"], ["definition", "Sexual activities (often including sexual intercourse) between two people"], ["user_id", 1], ["created_at", "2019-09-12 02:23:10.152277"], ["updated_at", "2019-09-12 02:23:10.152277"]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+Completed 200 OK in 9ms (Views: 2.4ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/words" for ::1 at 2019-09-11 22:24:45 -0400
+Processing by WordsController#create as JSON
+  Parameters: {"name"=>"love", "imgurl"=>"https://pixabay.com/get/55e0d3424e5aaf14f6da8c7dda79367d1037dbe756586c48702973d6924ec35fbd_1280.jpg", "definition"=>"Get pleasure from", "example"=>["I love cooking"], "user_id"=>1, "word"=>{"name"=>"love", "imgurl"=>"https://pixabay.com/get/55e0d3424e5aaf14f6da8c7dda79367d1037dbe756586c48702973d6924ec35fbd_1280.jpg", "definition"=>"Get pleasure from", "example"=>["I love cooking"], "user_id"=>1}}
+Unpermitted parameters: :example, :word
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mWord Create (0.4ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "love"], ["imgurl", "https://pixabay.com/get/55e0d3424e5aaf14f6da8c7dda79367d1037dbe756586c48702973d6924ec35fbd_1280.jpg"], ["definition", "Get pleasure from"], ["user_id", 1], ["created_at", "2019-09-12 02:24:45.699947"], ["updated_at", "2019-09-12 02:24:45.699947"]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/words" for ::1 at 2019-09-11 22:25:36 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.4ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:33
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/words" for ::1 at 2019-09-11 22:26:27 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.1ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:33
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/words" for ::1 at 2019-09-11 22:27:35 -0400
+Processing by WordsController#create as JSON
+  Parameters: {"name"=>"cat", "imgurl"=>"https://pixabay.com/get/57e4d0464e54a414f6da8c7dda79367d1037dbe756586c48702973d6964acc5dbd_1280.jpg", "definition"=>"A whip with nine knotted cords", "example"=>["I love cooking", "British sailors feared the cat"], "user_id"=>1, "word"=>{"name"=>"cat", "imgurl"=>"https://pixabay.com/get/57e4d0464e54a414f6da8c7dda79367d1037dbe756586c48702973d6964acc5dbd_1280.jpg", "definition"=>"A whip with nine knotted cords", "example"=>["I love cooking", "British sailors feared the cat"], "user_id"=>1}}
+Unpermitted parameters: :example, :word
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mWord Create (0.5ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "cat"], ["imgurl", "https://pixabay.com/get/57e4d0464e54a414f6da8c7dda79367d1037dbe756586c48702973d6964acc5dbd_1280.jpg"], ["definition", "A whip with nine knotted cords"], ["user_id", 1], ["created_at", "2019-09-12 02:27:35.340121"], ["updated_at", "2019-09-12 02:27:35.340121"]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/words" for ::1 at 2019-09-11 22:31:57 -0400
+Processing by WordsController#create as JSON
+  Parameters: {"name"=>"cat", "imgurl"=>"https://pixabay.com/get/55e1d4404f53af14f6da8c7dda79367d1037dbe756586c48702973d6964acc5dbd_1280.jpg", "definition"=>"A whip with nine knotted cords", "example"=>["British sailors feared the cat"], "user_id"=>1, "word"=>{"name"=>"cat", "imgurl"=>"https://pixabay.com/get/55e1d4404f53af14f6da8c7dda79367d1037dbe756586c48702973d6964acc5dbd_1280.jpg", "definition"=>"A whip with nine knotted cords", "example"=>["British sailors feared the cat"], "user_id"=>1}}
+Unpermitted parameters: :example, :word
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mWord Create (0.6ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "cat"], ["imgurl", "https://pixabay.com/get/55e1d4404f53af14f6da8c7dda79367d1037dbe756586c48702973d6964acc5dbd_1280.jpg"], ["definition", "A whip with nine knotted cords"], ["user_id", 1], ["created_at", "2019-09-12 02:31:57.460571"], ["updated_at", "2019-09-12 02:31:57.460571"]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/words" for ::1 at 2019-09-11 22:32:48 -0400
+Processing by WordsController#create as JSON
+  Parameters: {"name"=>"word", "imgurl"=>"https://pixabay.com/get/57e1d14a4d50af14f6da8c7dda79367d1037dbe756586c48702973d69248c05cbc_1280.jpg", "definition"=>"A unit of language that native speakers can identify", "example"=>["Words are the blocks from which sentences are made", "He hardly said ten words all morning"], "user_id"=>1, "word"=>{"name"=>"word", "imgurl"=>"https://pixabay.com/get/57e1d14a4d50af14f6da8c7dda79367d1037dbe756586c48702973d69248c05cbc_1280.jpg", "definition"=>"A unit of language that native speakers can identify", "example"=>["Words are the blocks from which sentences are made", "He hardly said ten words all morning"], "user_id"=>1}}
+Unpermitted parameters: :example, :word
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mWord Create (0.4ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "word"], ["imgurl", "https://pixabay.com/get/57e1d14a4d50af14f6da8c7dda79367d1037dbe756586c48702973d69248c05cbc_1280.jpg"], ["definition", "A unit of language that native speakers can identify"], ["user_id", 1], ["created_at", "2019-09-12 02:32:48.042718"], ["updated_at", "2019-09-12 02:32:48.042718"]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/words" for ::1 at 2019-09-11 22:33:23 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.2ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:33
+Completed 200 OK in 24ms (Views: 23.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/words" for ::1 at 2019-09-11 22:34:51 -0400
+Processing by WordsController#create as JSON
+  Parameters: {"name"=>"bat", "imgurl"=>"https://pixabay.com/get/57e7d2464c5bae14f6da8c7dda79367d1037dbe756586c48702973d69248c350b8_1280.png", "definition"=>"The club used in playing cricket", "example"=>"A cricket bat has a narrow handle and a broad flat end for hitting", "user_id"=>1, "word"=>{"name"=>"bat", "imgurl"=>"https://pixabay.com/get/57e7d2464c5bae14f6da8c7dda79367d1037dbe756586c48702973d69248c350b8_1280.png", "definition"=>"The club used in playing cricket", "example"=>"A cricket bat has a narrow handle and a broad flat end for hitting", "user_id"=>1}}
+Unpermitted parameter: :word
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mWord Create (0.4ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "example", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "bat"], ["imgurl", "https://pixabay.com/get/57e7d2464c5bae14f6da8c7dda79367d1037dbe756586c48702973d69248c350b8_1280.png"], ["definition", "The club used in playing cricket"], ["example", "A cricket bat has a narrow handle and a broad flat end for hitting"], ["user_id", 1], ["created_at", "2019-09-12 02:34:51.894721"], ["updated_at", "2019-09-12 02:34:51.894721"]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/words" for ::1 at 2019-09-11 22:35:00 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.2ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:33
+Completed 200 OK in 44ms (Views: 43.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/words" for ::1 at 2019-09-11 22:37:37 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.2ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:33
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/words" for ::1 at 2019-09-11 22:38:04 -0400
+Processing by WordsController#create as JSON
+  Parameters: {"name"=>"sun", "imgurl"=>"https://pixabay.com/get/54e1dd464f53ac14f6da8c7dda79367d1037dbe756586c48702973d69248cd5fb1_1280.jpg", "definition"=>"The rays of the sun", "example"=>"[\"The shingles were weathered by the sun and wind\"]", "user_id"=>1, "word"=>{"name"=>"sun", "imgurl"=>"https://pixabay.com/get/54e1dd464f53ac14f6da8c7dda79367d1037dbe756586c48702973d69248cd5fb1_1280.jpg", "definition"=>"The rays of the sun", "example"=>"[\"The shingles were weathered by the sun and wind\"]", "user_id"=>1}}
+Unpermitted parameter: :word
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mWord Create (0.4ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "example", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "sun"], ["imgurl", "https://pixabay.com/get/54e1dd464f53ac14f6da8c7dda79367d1037dbe756586c48702973d69248cd5fb1_1280.jpg"], ["definition", "The rays of the sun"], ["example", "[\"The shingles were weathered by the sun and wind\"]"], ["user_id", 1], ["created_at", "2019-09-12 02:38:04.619824"], ["updated_at", "2019-09-12 02:38:04.619824"]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/words" for ::1 at 2019-09-11 22:38:09 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.3ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:33
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/words" for ::1 at 2019-09-11 22:40:32 -0400
+Processing by WordsController#create as JSON
+  Parameters: {"name"=>"face", "imgurl"=>"https://pixabay.com/get/57e5dd464f5baf14f6da8c7dda79367d1037dbe756586c48702973d6924bc55aba_1280.jpg", "definition"=>"A surface forming part of the outside of an object", "example"=>"[\"Dew dripped from the face of the leaf\",\"They travelled across the face of the continent\"]", "user_id"=>1, "word"=>{"name"=>"face", "imgurl"=>"https://pixabay.com/get/57e5dd464f5baf14f6da8c7dda79367d1037dbe756586c48702973d6924bc55aba_1280.jpg", "definition"=>"A surface forming part of the outside of an object", "example"=>"[\"Dew dripped from the face of the leaf\",\"They travelled across the face of the continent\"]", "user_id"=>1}}
+Unpermitted parameter: :word
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[36mWord Create (0.4ms)[0m  [1m[32mINSERT INTO "words" ("name", "imgurl", "definition", "example", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "face"], ["imgurl", "https://pixabay.com/get/57e5dd464f5baf14f6da8c7dda79367d1037dbe756586c48702973d6924bc55aba_1280.jpg"], ["definition", "A surface forming part of the outside of an object"], ["example", "[\"Dew dripped from the face of the leaf\",\"They travelled across the face of the continent\"]"], ["user_id", 1], ["created_at", "2019-09-12 02:40:32.839646"], ["updated_at", "2019-09-12 02:40:32.839646"]]
+  ↳ app/controllers/words_controller.rb:11
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/words_controller.rb:11
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/words" for ::1 at 2019-09-11 22:40:44 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.3ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:33
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/words/apple" for ::1 at 2019-09-11 22:43:36 -0400
+Processing by WordsController#show as HTML
+  Parameters: {"id"=>"apple"}
+Completed 500 Internal Server Error in 110ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `param' for #<WordsController:0x00007fc382e01080>
+Did you mean?  params
+               params=):
+  
+app/controllers/words_controller.rb:27:in `show'
+  [1m[36mWord Load (0.5ms)[0m  [1m[34mSELECT  "words".* FROM "words" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mWord Load (0.2ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."name" = ? LIMIT ?[0m  [["name", "cat"], ["LIMIT", 1]]
+Started GET "/words/apple" for ::1 at 2019-09-11 22:49:10 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/gulnoza/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WordsController#show as HTML
+  Parameters: {"id"=>"apple"}
+Unpermitted parameter: :id
+  [1m[36mWord Load (0.1ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:27
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/words/dog" for ::1 at 2019-09-11 22:49:19 -0400
+Processing by WordsController#show as HTML
+  Parameters: {"id"=>"dog"}
+Unpermitted parameter: :id
+  [1m[36mWord Load (0.1ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:27
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/words" for ::1 at 2019-09-11 22:50:17 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.3ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:33
+Completed 200 OK in 25ms (Views: 21.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/words/apple" for ::1 at 2019-09-11 22:50:31 -0400
+Processing by WordsController#show as HTML
+  Parameters: {"id"=>"apple"}
+Unpermitted parameter: :id
+  [1m[36mWord Load (0.3ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:27
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/words/dog" for ::1 at 2019-09-11 22:50:39 -0400
+Processing by WordsController#show as HTML
+  Parameters: {"id"=>"dog"}
+Unpermitted parameter: :id
+  [1m[36mWord Load (0.2ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:27
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/words/1" for ::1 at 2019-09-11 22:50:45 -0400
+Processing by WordsController#show as HTML
+  Parameters: {"id"=>"1"}
+Unpermitted parameter: :id
+  [1m[36mWord Load (1.4ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:27
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+  [1m[36mWord Load (0.2ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."name" = ? LIMIT ?[0m  [["name", "cat"], ["LIMIT", 1]]
+Started GET "/words" for ::1 at 2019-09-11 22:51:39 -0400
+Processing by WordsController#index as HTML
+  [1m[36mWord Load (0.2ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  ↳ app/controllers/words_controller.rb:34
+Completed 200 OK in 33ms (Views: 9.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/words/dog" for ::1 at 2019-09-11 22:51:45 -0400
+Processing by WordsController#show as HTML
+  Parameters: {"id"=>"dog"}
+Unpermitted parameter: :id
+  [1m[36mWord Load (0.3ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:27
+Unpermitted parameter: :id
+Completed 500 Internal Server Error in 226135ms (ActiveRecord: 0.3ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `show'
+app/controllers/words_controller.rb:29:in `show'
+Started GET "/words/dog" for ::1 at 2019-09-11 22:55:51 -0400
+Processing by WordsController#show as HTML
+  Parameters: {"id"=>"dog"}
+Unpermitted parameter: :id
+  [1m[36mWord Load (0.8ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:27
+Completed 200 OK in 67ms (Views: 1.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/words/dog" for ::1 at 2019-09-11 22:56:07 -0400
+Processing by WordsController#show as HTML
+  Parameters: {"id"=>"dog"}
+Unpermitted parameter: :id
+  [1m[36mWord Load (1.1ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:27
+Completed 200 OK in 30ms (Views: 1.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/words/1" for ::1 at 2019-09-11 22:56:11 -0400
+Processing by WordsController#show as HTML
+  Parameters: {"id"=>"1"}
+Unpermitted parameter: :id
+  [1m[36mWord Load (1.0ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:27
+Completed 200 OK in 31ms (Views: 1.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/words/cat" for ::1 at 2019-09-11 22:56:17 -0400
+Processing by WordsController#show as HTML
+  Parameters: {"id"=>"cat"}
+Unpermitted parameter: :id
+  [1m[36mWord Load (0.8ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:27
+Completed 200 OK in 34ms (Views: 4.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/words/cat" for ::1 at 2019-09-11 22:57:29 -0400
+Processing by WordsController#show as HTML
+  Parameters: {"id"=>"cat"}
+Unpermitted parameter: :id
+  [1m[36mWord Load (1.2ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:27
+Completed 200 OK in 69ms (Views: 1.0ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/words/dog" for ::1 at 2019-09-11 22:57:34 -0400
+Processing by WordsController#show as HTML
+  Parameters: {"id"=>"dog"}
+Unpermitted parameter: :id
+  [1m[36mWord Load (0.7ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:27
+Completed 200 OK in 29ms (Views: 5.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/words/dog" for ::1 at 2019-09-11 22:57:52 -0400
+Processing by WordsController#show as HTML
+  Parameters: {"id"=>"dog"}
+  [1m[36mWord Load (4.9ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."name" = ? LIMIT ?[0m  [["name", "dog"], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:27
+Completed 200 OK in 149ms (Views: 9.4ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/words/cat" for ::1 at 2019-09-11 22:58:00 -0400
+Processing by WordsController#show as HTML
+  Parameters: {"id"=>"cat"}
+  [1m[36mWord Load (1.0ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."name" = ? LIMIT ?[0m  [["name", "cat"], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:27
+Completed 200 OK in 30ms (Views: 4.7ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWord Load (0.2ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+Started GET "/my_words/1" for ::1 at 2019-09-11 23:10:24 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/my_words/1"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/my_words" for ::1 at 2019-09-11 23:13:50 -0400
+Processing by WordsController#my_words as JSON
+  Parameters: {"id"=>1, "word"=>{"id"=>1}}
+Completed 404 Not Found in 30ms (ActiveRecord: 10.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/words_controller.rb:22:in `my_words'
+Started POST "/my_words" for ::1 at 2019-09-11 23:14:53 -0400
+Processing by WordsController#my_words as JSON
+  Parameters: {"id"=>1, "word"=>{"id"=>1}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:22
+  [1m[36mWord Load (4.1ms)[0m  [1m[34mSELECT "words".* FROM "words" WHERE "words"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/words_controller.rb:23
+Completed 200 OK in 332ms (Views: 216.6ms | ActiveRecord: 17.8ms)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "words" WHERE "words"."user_id" = ?[0m  [["user_id", 1]]
+Started POST "/my_words" for ::1 at 2019-09-11 23:21:25 -0400
+Processing by WordsController#my_words as JSON
+  Parameters: {"id"=>1, "word"=>{"id"=>1}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:22
+  [1m[36mWord Load (1.3ms)[0m  [1m[34mSELECT "words".* FROM "words" WHERE "words"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/words_controller.rb:23
+Completed 200 OK in 172ms (Views: 150.9ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/my_words" for ::1 at 2019-09-11 23:22:00 -0400
+Processing by WordsController#my_words as JSON
+  Parameters: {"id"=>1, "word"=>{"id"=>1}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:22
+  [1m[36mWord Load (1.2ms)[0m  [1m[34mSELECT "words".* FROM "words" WHERE "words"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/words_controller.rb:23
+Completed 200 OK in 170ms (Views: 153.4ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/my_words" for ::1 at 2019-09-11 23:22:08 -0400
+Processing by WordsController#my_words as JSON
+  Parameters: {"id"=>1, "word"=>{"id"=>1}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:22
+  [1m[36mWord Load (1.2ms)[0m  [1m[34mSELECT "words".* FROM "words" WHERE "words"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/words_controller.rb:23
+Completed 200 OK in 177ms (Views: 160.1ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/my_words" for ::1 at 2019-09-11 23:23:56 -0400
+Processing by WordsController#my_words as JSON
+  Parameters: {"id"=>1, "word"=>{"id"=>1}}
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:22
+  [1m[36mWord Load (4.8ms)[0m  [1m[34mSELECT "words".* FROM "words" WHERE "words"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/words_controller.rb:23
+Completed 200 OK in 177ms (Views: 160.4ms | ActiveRecord: 8.9ms)
+
+
+Started POST "/my_words" for ::1 at 2019-09-11 23:35:17 -0400
+Processing by WordsController#my_words as JSON
+  Parameters: {"id"=>1, "word"=>{"id"=>1}}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:22
+  [1m[36mWord Load (1.3ms)[0m  [1m[34mSELECT "words".* FROM "words" WHERE "words"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/words_controller.rb:23
+Completed 200 OK in 346ms (Views: 233.9ms | ActiveRecord: 18.6ms)
+
+
+Started POST "/my_words" for ::1 at 2019-09-11 23:37:35 -0400
+Processing by WordsController#my_words as JSON
+  Parameters: {"id"=>1, "word"=>{"id"=>1}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:22
+  [1m[36mWord Load (4.5ms)[0m  [1m[34mSELECT "words".* FROM "words" WHERE "words"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/words_controller.rb:23
+Completed 200 OK in 190ms (Views: 166.2ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/my_words" for ::1 at 2019-09-11 23:39:35 -0400
+Processing by WordsController#my_words as JSON
+  Parameters: {"id"=>1, "word"=>{"id"=>1}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:22
+  [1m[36mWord Load (1.2ms)[0m  [1m[34mSELECT "words".* FROM "words" WHERE "words"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/words_controller.rb:23
+Completed 200 OK in 181ms (Views: 166.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/words/14" for ::1 at 2019-09-11 23:39:39 -0400
+Processing by WordsController#show as */*
+  Parameters: {"id"=>"14"}
+  [1m[36mWord Load (0.9ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:27
+Completed 200 OK in 26ms (Views: 7.7ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/my_words" for ::1 at 2019-09-11 23:53:13 -0400
+Processing by WordsController#my_words as JSON
+  Parameters: {"id"=>1, "word"=>{"id"=>1}}
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:22
+  [1m[36mWord Load (1.2ms)[0m  [1m[34mSELECT "words".* FROM "words" WHERE "words"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/words_controller.rb:23
+Completed 200 OK in 362ms (Views: 236.9ms | ActiveRecord: 14.8ms)
+
+
+Started POST "/my_words" for ::1 at 2019-09-11 23:53:57 -0400
+Processing by WordsController#my_words as JSON
+  Parameters: {"id"=>1, "word"=>{"id"=>1}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:22
+  [1m[36mWord Load (1.1ms)[0m  [1m[34mSELECT "words".* FROM "words" WHERE "words"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/words_controller.rb:23
+Completed 200 OK in 199ms (Views: 180.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/words/10" for ::1 at 2019-09-11 23:54:00 -0400
+Processing by WordsController#show as */*
+  Parameters: {"id"=>"10"}
+  [1m[36mWord Load (1.1ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:27
+Completed 200 OK in 29ms (Views: 7.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/my_words" for ::1 at 2019-09-11 23:54:08 -0400
+Processing by WordsController#my_words as JSON
+  Parameters: {"id"=>1, "word"=>{"id"=>1}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:22
+  [1m[36mWord Load (1.8ms)[0m  [1m[34mSELECT "words".* FROM "words" WHERE "words"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/words_controller.rb:23
+Completed 200 OK in 245ms (Views: 223.8ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/words/23" for ::1 at 2019-09-11 23:54:13 -0400
+Processing by WordsController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mWord Load (0.7ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:27
+Completed 200 OK in 27ms (Views: 8.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/my_words" for ::1 at 2019-09-11 23:55:55 -0400
+Processing by WordsController#my_words as JSON
+  Parameters: {"id"=>1, "word"=>{"id"=>1}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:22
+  [1m[36mWord Load (1.1ms)[0m  [1m[34mSELECT "words".* FROM "words" WHERE "words"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/words_controller.rb:23
+Completed 200 OK in 201ms (Views: 184.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/words/14" for ::1 at 2019-09-11 23:55:58 -0400
+Processing by WordsController#show as */*
+  Parameters: {"id"=>"14"}
+  [1m[36mWord Load (0.7ms)[0m  [1m[34mSELECT  "words".* FROM "words" WHERE "words"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/words_controller.rb:27
+Completed 200 OK in 23ms (Views: 7.9ms | ActiveRecord: 0.7ms)
+
+
