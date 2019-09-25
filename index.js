@@ -91,7 +91,7 @@ function renderUser(data) {
 }
 
 function fetchImg() {
-    const key = "13585259-8c63b3b95ff4e2aedcd1c4d03"
+    const key = "APIKey"
     fetch(`https://pixabay.com/api?q=${word}&key=${key}`)
         .then(res => res.json())
         .then(res => {
@@ -246,7 +246,7 @@ form_to_search.addEventListener('submit', fetch_requested_word)
         fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}`, {
             headers: {
                 "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
-                "X-RapidAPI-Key": "aa20248760msh1c4f23b66ef7462p148d17jsn43c5769c9e8b"
+                "X-RapidAPI-Key": "APIKey"
             }
         })
         .then(response => response.json())
