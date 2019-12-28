@@ -1,24 +1,34 @@
-# README
+### NoteTerm
+Web application for searching words to see visual and term explanation of them.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A full stack JavaScript and Ruby on Rails web application was built for those who want to learn English words through different definition and associated images.
 
-Things you may want to cover:
+##Features
+Provides learning words through visualization. User able to save interested words his learning list.
 
-* Ruby version
+##Built with
+#Backend
+Ruby [2.6.1] Rails [> 5.2.3] - MVC web framework used as an API PostgreSQL [>= 0.18, < 2.0] - Database bcrypt [> 3.1.7] - Gem for encryption and securing user passwords
 
-* System dependencies
+#FrontEnd
+JavaScript, HTML, Pixabay API, Words Rapid API
 
-* Configuration
+Styling: Custom CSS
 
-* Database creation
+Prerequisites
+Before you begin, ensure you have installed the latest version of:
 
-* Database initialization
+Ruby Rails PostgreSQL Node.js and npm
 
-* How to run the test suite
+API Reference
+This web app uses the following APIs:
 
-* Services (job queues, cache servers, search engines, etc.)
+Pixabay API
+Pixabay API keys you can get -> here
 
-* Deployment instructions
+Words Rapid API
+Words Rapid API keys you can get -> here
 
-* ...
+Installing
+Backend and FrontEnd Installation, please click here
+
