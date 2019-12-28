@@ -3,14 +3,14 @@ Web application for searching words to see visual and term explanation of them.
 
 A full stack JavaScript and Ruby on Rails web application was built for those who want to learn English words through different definition and associated images.
 
-##Features
-Provides learning words through visualization. User able to save interested words his learning list.
+## Features
+Provides learning words through visualization. User able to save interested words in his learning list.
 
-##Built with
+## Built with
 #Backend
 Ruby [2.6.1] Rails [> 5.2.3] - MVC web framework used as an API PostgreSQL [>= 0.18, < 2.0] - Database bcrypt [> 3.1.7] - Gem for encryption and securing user passwords
 
-#FrontEnd
+# FrontEnd
 JavaScript, HTML, Pixabay API, Words Rapid API
 
 Styling: Custom CSS
