@@ -1,4 +1,5 @@
-# NoteTerm
+# NoteTerm - [Demo](https://www.youtube.com/watch?v=IElmnGAuf8o)
+
 Web application for searching words to see visual and term explanation of them.
 
 A full stack JavaScript and Ruby on Rails web application was built for those who want to learn English words through different definition and associated images.
@@ -30,5 +31,4 @@ Pixabay API keys you can get -> here
 Words Rapid API
 Words Rapid API keys you can get -> here
 
-# [Demo](https://www.youtube.com/watch?v=IElmnGAuf8o)
 
